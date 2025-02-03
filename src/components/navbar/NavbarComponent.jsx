@@ -19,7 +19,7 @@ const links = [
 const NavbarComponent = () => {
   const pathname = usePathname();
   return (
-    <header className="flex flex-col md:flex-row justify-between items-center shadow-md md:shadow-b-md">
+    <header className="flex flex-col md:flex-row justify-between items-center shadow">
       <Link href="/">
         <Image
           src={logo}
@@ -30,7 +30,7 @@ const NavbarComponent = () => {
           className="m-5"
         />
       </Link>
-      <nav className="md:relative fixed bottom-0 w-full md:w-auto m-5 shadow-t-md md:shadow-none">
+      <nav className="fixed bottom-0 w-full md:relative md:w-auto">
         <ul className="flex flex-row md:justify-end justify-around items-center gap-5">
           {links.map((link) => (
             <li key={link.name}>
