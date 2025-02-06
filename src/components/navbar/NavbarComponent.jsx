@@ -20,7 +20,7 @@ const NavbarComponent = () => {
   const pathname = usePathname();
 
   return (
-    <header className="flex flex-col md:flex-row justify-between items-center shadow">
+    <header className="flex flex-col md:flex-row justify-between items-center shadow sticky top-0 z-50 bg-slate-50">
       <Link href="/">
         <Image
           src="/next.svg"
@@ -32,16 +32,16 @@ const NavbarComponent = () => {
         />
       </Link>
 
-      <nav className="fixed bottom-0 w-full md:relative md:w-auto bg-white">
-        <ul className="flex flex-row md:justify-end justify-around items-center gap-5 p-3">
+      <nav className="fixed bottom-0 w-full md:relative md:w-auto bg-slate-50">
+        <ul className="flex flex-row md:justify-end justify-around items-center gap-5 pt-1">
           {links.map((link) => (
             <li key={link.name} className="flex items-center">
               <Link
                 href={link.href}
                 className={clsx(
-                  "h-[48px] flex items-center justify-center px-4 py-2",
+                  "h-[48px] flex items-center justify-center px-4 py-2 hover:text-pink-900",
                   {
-                    "border-b-4 border-blue-800": pathname === link.href,
+                    "border-b-4 border-pink-200": pathname === link.href,
                   }
                 )}
               >
