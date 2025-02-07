@@ -4,9 +4,8 @@ const Title = () => {
   return (
     <>
       <h1 className="flex justify-center font-bold text-3xl italic mt-3">
-        Valery Miranda
+        Centro estético VM
       </h1>
-      <h2 className="flex justify-center text-xl italic mb-5">Cosmetóloga</h2>
     </>
   );
 };

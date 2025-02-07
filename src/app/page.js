@@ -6,9 +6,9 @@ export default async function Home() {
 
   return (
     <>
-      <section className="flex flex-col justify-center">
-        <h3 className="text-2xl font-bold px-4 text-start md:mx-20">
-          Tratamientos
+      <section className="flex flex-col justify-center mx-auto max-w-3xl">
+        <h3 className="text-xl font-bold px-4 md:px-0 text-start w-full my-3">
+          TRATAMIENTOS
         </h3>
         <>
           {!treatments.data.treatments.length ? (
@@ -17,7 +17,7 @@ export default async function Home() {
             treatments.data.treatments.map((treatment, index) => (
               <article
                 key={treatment.id}
-                className={`flex flex-col shadow-md mb-5 mx-auto md:flex-row max-w-3xl bg-slate-50 ${
+                className={`flex flex-col shadow-md mb-5 md:flex-row w-full bg-slate-50 ${
                   index % 2 !== 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
