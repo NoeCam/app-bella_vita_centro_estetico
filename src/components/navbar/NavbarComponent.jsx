@@ -6,6 +6,8 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
+import Title from "@/components/title/Title";
+
 const links = [
   { name: "Inicio", href: "/", icon: "/icon-home.svg" },
   { name: "Contacto", href: "/contact", icon: "/icon-map.svg" },
@@ -23,11 +25,11 @@ const NavbarComponent = () => {
     <header className="flex flex-col md:flex-row justify-between items-center shadow sticky top-0 z-50 bg-slate-50">
       <Link href="/">
         <Image
-          src="/next.svg"
+          src="/Logo-Marca-Agua-Negro.png"
           alt="Logo"
           width={100}
           height={50}
-          className="m-5"
+          className="mx-5"
           unoptimized
         />
       </Link>
@@ -39,9 +41,9 @@ const NavbarComponent = () => {
               <Link
                 href={link.href}
                 className={clsx(
-                  "h-[48px] flex items-center justify-center px-4 py-2 hover:text-pink-900",
+                  "h-[48px] flex items-center justify-center px-4 py-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110",
                   {
-                    "border-b-4 border-pink-200": pathname === link.href,
+                    "border-b-4 border-gold font-bold": pathname === link.href,
                   }
                 )}
               >

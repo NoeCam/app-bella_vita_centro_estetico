@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        // gold: "#D19E00",
+        gold: "#CFA231",
       },
     },
   },
