@@ -3,7 +3,6 @@ import { getAllTreatmentsService } from "@/services/getAllTreatmentsServices";
 
 export default async function Home() {
   const treatments = await getAllTreatmentsService();
-
   return (
     <>
       <section className="flex flex-col justify-center mx-auto max-w-3xl">

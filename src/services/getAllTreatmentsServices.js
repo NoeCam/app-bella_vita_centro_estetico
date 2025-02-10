@@ -3,3 +3,5 @@ export const getAllTreatmentsService = async () => {
   const json = await response.json();
   return json;
 };
+
+export default getAllTreatmentsService;
