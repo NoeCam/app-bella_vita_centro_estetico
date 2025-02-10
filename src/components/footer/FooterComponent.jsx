@@ -17,9 +17,6 @@ const FooterComponent = () => {
             <a href="/terms-of-service" className="text-sm hover:underline">
               Términos de Servicio
             </a>
-            <a href="/contact" className="text-sm hover:underline">
-              Contacto
-            </a>
           </div> */}
           <div className="flex space-x-4 md:mt-0">
             <a
