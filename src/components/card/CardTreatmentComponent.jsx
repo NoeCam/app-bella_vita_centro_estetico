@@ -11,10 +11,10 @@ export const CardTreatmentComponent = ({ treatment }) => {
         alt="img product"
       />
       <div className="flex flex-col justify-between p-4 leading-normal">
-        <h3 className="text-xl font-bold text-gray-900 mt-4">
+        <h3 className="text-xl font-bold text-gray-900 mt-4">{name}</h3>
+        <h4 className="text-base font-bold text-gray-900 mt-4">
           {type} <span className="font-thin">{subtype}</span>
-        </h3>
-        <h4 className="text-lg font-bold text-gray-900 mt-4">{name}</h4>
+        </h4>
         <p className="text-gray-500 text-sm mt-2">{description}</p>
         <div
           className={`flex flex-row justify-between h-full ${
@@ -22,20 +22,10 @@ export const CardTreatmentComponent = ({ treatment }) => {
           }`}
         >
           <div className={`flex flex-col mt-4 `}>
-            <div
-              className={` flex text-gray-900 font-bold text-lg ${
-                id % 2 === 0 ? "md:item-start" : "md:item-end"
-              }`}
-            >
+            <div className="flex text-gray-900 font-bold text-lg h-full items-end">
               Precio: $ {price}
             </div>
-            <h6
-              className={`flex text-xs ${
-                id % 2 === 0 ? "md:item-start" : "md:item-end"
-              }`}
-            >
-              {clarification}
-            </h6>
+            <h6 className="flex text-xs">{clarification}</h6>
           </div>
           <div className="flex flex-col justify-end">
             <Image
