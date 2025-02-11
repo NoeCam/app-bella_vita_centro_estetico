@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const FooterComponent = () => {
   const year = new Date().getFullYear();
   return (
@@ -19,7 +21,7 @@ const FooterComponent = () => {
             </a>
           </div> */}
           <div className="flex space-x-4 md:mt-0">
-            <a
+            <Link
               href="https://www.instagram.com/cosmetologa_vm?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noopener noreferrer"
@@ -30,7 +32,7 @@ const FooterComponent = () => {
                 width={24}
                 height={24}
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
