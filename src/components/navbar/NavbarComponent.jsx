@@ -28,9 +28,8 @@ const NavbarComponent = () => {
           src="/Logo-Marca-Agua-Negro.png"
           alt="Logo"
           width={80}
-          height={40}
+          height={58}
           className="mx-5 p-3"
-          unoptimized
         />
       </Link>
 
