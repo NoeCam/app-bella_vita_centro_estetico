@@ -2,11 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-
-import Title from "@/components/title/Title";
 
 const links = [
   { name: "Inicio", href: "/", icon: "/icon-home.svg" },
@@ -39,12 +36,9 @@ const NavbarComponent = () => {
             <li key={link.name} className="flex items-center">
               <Link
                 href={link.href}
-                className={clsx(
-                  "h-[48px] flex items-center justify-center px-4 py-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110",
-                  {
-                    "border-b-4 border-gold font-bold": pathname === link.href,
-                  }
-                )}
+                className={`h-[48px] flex items-center justify-center px-4 py-2 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 
+                  ${pathname === link.href ? "border-b-4 border-gold" : ""}
+                `}
               >
                 {/* Contenedor de ícono: Solo visible en móviles */}
                 <span className="block md:hidden">
