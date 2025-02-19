@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
-export const page = () => {
+export const PageAppointments = () => {
   const searchParams = useSearchParams();
   const treatmentId = searchParams.get("treatmentId");
 
@@ -72,6 +72,14 @@ export const page = () => {
         <h3>Fecha y hora</h3>
       </div>
     </form>
+  );
+};
+
+const page = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <PageAppointments />
+    </Suspense>
   );
 };
 
