@@ -1,5 +1,6 @@
 import Image from "next/image";
 import getAllTreatmentsService from "@/services/getAllTreatmentsServices";
+import Link from "next/link";
 
 export async function CardTreatmentComponent() {
   const treatments = await getAllTreatmentsService();
@@ -44,15 +45,17 @@ export async function CardTreatmentComponent() {
                   <h6 className="flex text-xs">{treatment.clarification}</h6>
                 </div>
                 <div className="flex flex-col justify-end">
-                  <Image
-                    src="/icon-calendar.svg"
-                    alt="Button calendar to take an appointment"
-                    width={24}
-                    height={24}
-                    unoptimized
-                    className="flex justify-center content-end 
+                  <Link href={`/appointments?treatmentId=${treatment.id}`}>
+                    <Image
+                      src="/icon-calendar.svg"
+                      alt="Button calendar to take an appointment"
+                      width={24}
+                      height={24}
+                      unoptimized
+                      className="flex justify-center content-end 
               transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-125 "
-                  />
+                    />
+                  </Link>
                 </div>
               </div>
             </div>
