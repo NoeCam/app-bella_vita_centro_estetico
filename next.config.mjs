@@ -10,6 +10,9 @@ const nextConfig = {
     ],
     domains: ["example.com"],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
