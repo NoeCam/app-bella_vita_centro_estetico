@@ -19,7 +19,9 @@ const raleway = Raleway({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${raleway.className} flex flex-col min-h-screen`}>
+      <body
+        className={`${raleway.className} flex flex-col min-h-screen bg-white text-black`}
+      >
         <NavbarComponent />
         <main className="pb-12    md:flex-1 md:pb-2">
           <Title />

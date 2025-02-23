@@ -80,32 +80,43 @@ const page = () => {
               Cosmetóloga Valery Miranda
             </h3>
             <p className="text-white">
-              Mi nombre es Valery (pero también algunos me conocen por Shishi).
+              ¡Hola! Soy Valery (aunque algunos me conocen como Shishi).
             </p>
-            <p className="text-white">Taurina, 35 años, mamá de Julián.</p>
             <p className="text-white">
-              Luego de la maternidad comencé a interesarme en el mundo de la
-              belleza, la estética y la cantidad de técnicas y conocimientos que
-              surgen todo el tiempo 𝗽𝗮𝗿𝗮 𝗽𝗼𝘁𝗲𝗻𝗰𝗶𝗮𝗿 𝗹𝗮 𝗯𝗲𝗹𝗹𝗲𝘇𝗮 𝗱𝗲 𝗼𝘁𝗿𝗮𝘀 𝗺𝘂𝗷𝗲𝗿𝗲𝘀 𝘆
-              𝗲𝘀𝗼 𝗺𝗲 𝗽𝗮𝗿𝗲𝗰𝗲 𝘂𝗻 𝘁𝗿𝗮𝗯𝗮𝗷𝗼 𝗳𝗮𝘀𝗰𝗶𝗻𝗮𝗻𝘁𝗲. 🤩 Que 𝗹𝗮 𝗺𝘂𝗷𝗲𝗿 𝘀𝗲 𝘀𝗶𝗲𝗻𝘁𝗮 𝗮
-              𝗴𝘂𝘀𝘁𝗼, 𝘀𝗲 𝘀𝗶𝗲𝗻𝘁𝗮 𝗹𝗶𝗻𝗱𝗮, 𝘀𝗲 𝘀𝗶𝗲𝗻𝘁𝗮 𝗲𝗺𝗽𝗼𝗱𝗲𝗿𝗮𝗱𝗮 𝘆 𝗹𝗶𝗯𝗿𝗲 𝗱𝗲 𝗲𝗹𝗲𝗴𝗶𝗿
-              𝗰𝗼́𝗺𝗼 𝗾𝘂𝗶𝗲𝗿𝗲 𝘃𝗲𝗿𝘀𝗲 𝘆 𝗺𝗼𝘀𝘁𝗿𝗮𝗿𝘀𝗲. Que pueda elegir mejorar su piel,
-              cuidarla, realzar su mirada con unas lindas pestañas, mejorar su
-              aspecto de cejas, hidratar y darle color a sus labios, entre
-              otros.🙌🏻
+              Mi pasión por el mundo de la belleza y la estética nació después
+              de la maternidad, cuando descubrí la fascinante variedad de
+              técnicas y conocimientos que evolucionan constantemente para
+              realzar la belleza de otras mujeres. Considero que ayudar a una
+              mujer a sentirse cómoda, hermosa, empoderada y libre de decidir
+              cómo quiere verse y mostrarse es un trabajo profundamente
+              gratificante.
             </p>
 
             <p className="text-white">
-              Soy cosmetóloga, lashista, micropigmentadora en labios y
-              cejas.🧴💋 Finalice más de 10 cursos que iré contando más adelante
-              de diferentes procedimientos faciales estéticos.
+              Me especializo en cosmetología, extensiones de pestañas
+              (lashista), y micropigmentación de labios y cejas, disciplinas que
+              me permiten ofrecer un enfoque integral para el cuidado y
+              embellecimiento. He completado más de 10 cursos de procedimientos
+              faciales estéticos.
             </p>
 
             <p className="text-white">
-              Hace ya un tiempo comencé con este proyecto en el cual 𝗱𝗲𝗰𝗶𝗱𝗶́
-              𝗳𝗼𝗿𝗺𝗮𝗿𝗺𝗲 𝘆 𝗲𝗻𝗳𝗼𝗰𝗮𝗿𝗺𝗲 𝗮𝗹 𝟭𝟬𝟬% 𝗽𝗼𝗿𝗾𝘂𝗲 𝗺𝗲 𝗹𝗹𝗲𝗻𝗮 𝗲𝗹 𝗰𝗼𝗿𝗮𝘇𝗼́𝗻 𝗱𝗲 𝗮𝗹𝗲𝗴𝗿𝗶́𝗮
-              𝘆 𝗳𝗲𝗹𝗶𝗰𝗶𝗱𝗮𝗱. Mi objetivo es poder darles no solo un servicio sino
-              un espacio donde 𝘀𝗲 𝘀𝗶𝗲𝗻𝘁𝗮𝗻 𝗰𝗼́𝗺𝗼𝗱𝗮𝘀 𝘆 𝗾𝘂𝗶𝗲𝗿𝗮𝗻 𝘃𝗼𝗹𝘃𝗲𝗿 𝘀𝗶𝗲𝗺𝗽𝗿𝗲. ♥️
+              Hace algún tiempo decidí transformar esta pasión en un proyecto
+              personal, comprometiéndome al 100% con mi formación y desarrollo
+              profesional, porque este trabajo llena mi corazón de alegría y
+              satisfacción.
+            </p>
+            <p className="text-white">
+              Mi objetivo es ofrecerte no solo un servicio de calidad, sino
+              también crear un espacio en el que te sientas cómoda, especial y
+              siempre quieras regresar. Ya sea para mejorar la apariencia de tu
+              piel, realzar tu mirada con unas hermosas pestañas, definir tus
+              cejas o dar color e hidratación a tus labios, estoy aquí para
+              acompañarte en el proceso.
+            </p>
+            <p className="text-white font-bold mt-3">
+              Porque verte bien es sentirte bien, y mereces elegir cómo quieres
+              mostrar tu mejor versión.
             </p>
           </div>
         </div>
