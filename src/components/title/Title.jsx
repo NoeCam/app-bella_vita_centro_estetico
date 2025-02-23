@@ -10,6 +10,8 @@ const Title = () => {
         fill
         style={{ objectFit: "cover" }}
         priority
+        rel="preload"
+        as="image"
       />
       <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
         <h1 className="text-white text-4xl md:text-6xl font-bold text-center">
