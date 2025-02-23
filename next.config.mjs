@@ -8,7 +8,7 @@ const nextConfig = {
         hostname: "example.com",
       },
     ],
-    domains: ["example.com"],
+    domains: ["res.cloudinary.com"],
   },
   eslint: {
     ignoreDuringBuilds: true,
