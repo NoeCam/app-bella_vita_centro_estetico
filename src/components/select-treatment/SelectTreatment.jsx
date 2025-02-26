@@ -48,7 +48,12 @@ export default function SelectTreatment({ treatmentId }) {
     replace(`${pathname}?${params.toString()}`);
   };
   return (
-    <select name="select" value={selectedId} onChange={handleClick}>
+    <select
+      name="select"
+      value={selectedId}
+      onChange={handleClick}
+      className="mx-2 mb-5 px-4 py-2 bg-slate-50 shadow-lg rounded-md"
+    >
       <option value="">Lista de tratamientos</option>
       {uniqueTypes.map((type, index) => (
         <optgroup key={index} label={type}>

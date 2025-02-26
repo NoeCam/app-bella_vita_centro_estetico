@@ -13,43 +13,20 @@ export const PageAppointments = () => {
   const date = searchParams.get("date");
 
   const [selectedDate, setSelectedDate] = useState(date || null);
+  const [selectedTime, setSelectedTime] = useState("");
 
   const handleSumbit = async (e) => {
-    // e.preventDefault();
-    // const treatmentId = e.target.treatment.value;
-    // const date = e.target.date.value;
-    // const time = e.target.time.value;
-    //   try {
-    //     await bookingTreatmentService(treatmentId, date, time);
-    //     alert("Tu tratamiento ha sido reservado con éxito");
-    //   } catch (error) {
-    //     alert("Error al reservar el tratamiento");
-    //   }
+    e.preventDefault();
+    const treatmentId = e.target.treatment.value;
+    const date = e.target.date.value;
+
+    try {
+      await bookingTreatmentService(treatmentId, date, selectedTime);
+      alert("Tu tratamiento ha sido reservado con éxito");
+    } catch (error) {
+      alert("Error al reservar el tratamiento");
+    }
   };
-
-  // const fetchTimeAppointments = async () => {
-  //   try {
-  //     const response = fetch(
-  //       `${process.env.NEXT_PUBLIC_API_URL}/time-appointments`,
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           treatmentId,
-  //           selectedDate,
-  //         }),
-  //       }
-  //     );
-  //     if (!response.ok) throw new Error("Error al reservar el tratamiento.");
-  //     return;
-  //   } catch (error) {}
-  // };
-
-  // useEffect(() => {
-  //   fetchTimeAppointments();
-  // }, [selectedDate]);
 
   return (
     <form
@@ -57,17 +34,83 @@ export const PageAppointments = () => {
       onSubmit={handleSumbit}
     >
       <h1 className="text-4xl font-bold my-10">Reserva tú tratamiento</h1>
-      <h2 className="mb-3">Selecciona un tratamiento</h2>
-      <SelectTreatment treatmentId={treatmentId} />
-      <div className="my-10">
-        <h3 className="text-center mb-3">Fecha y hora</h3>
+      <>
+        <h2 className="text-2xl text-center mb-3">
+          1. Selecciona un tratamiento
+        </h2>
+        <SelectTreatment treatmentId={treatmentId} />
+      </>
+      <div className="mb-5">
+        <h2 className="text-2xl text-center my-3">2. Selecciona una fecha</h2>
         <CalendarPersonalize onChange={setSelectedDate} value={selectedDate} />
-        <TimeTreatment />
       </div>
-      {/* faltan datos de cliente */}
+      <div className="mb-5">
+        <h2 className="text-2xl text-center my-3">3. Selecciona un horario</h2>
+        <TimeTreatment
+          treatmentId={treatmentId}
+          selectedDate={selectedDate}
+          onTimeSelect={setSelectedTime}
+        />
+      </div>
+      <div className="mb-5">
+        <h2 className="text-2xl text-center my-3">4. Ingrese sus datos</h2>
+        <div>
+          <label htmlFor="name">Nombre (2 a 10 caracteres):</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            minLength="2"
+            maxLength="10"
+            size="10"
+            className="mx-2 mb-5 px-4 py-2 bg-slate-50 shadow-lg rounded-md"
+          />
+        </div>
+        <div>
+          <label htmlFor="last-name">Apellido (2 a 10 caracteres):</label>
+          <input
+            type="text"
+            id="last-name"
+            name="last-name"
+            required
+            minLength="2"
+            maxLength="10"
+            size="10"
+            className="mx-2 mb-5 px-4 py-2 bg-slate-50 shadow-lg rounded-md"
+          />
+        </div>
+        <div>
+          <label htmlFor="email">E-mail:</label>
+          <input
+            type="email"
+            id="email"
+            pattern="example.+@example\.com"
+            size="30"
+            required
+            className="mx-2 mb-5 px-4 py-2 bg-slate-50 shadow-lg rounded-md"
+          />
+        </div>
+        <div>
+          <label htmlFor="phone">
+            Celular:
+            <br />
+            <small>Formato: 099-000-000</small>
+          </label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+            required
+            className="mx-2 mb-5 px-4 py-2 bg-slate-50 shadow-lg rounded-md"
+          />
+        </div>
+      </div>
+
       <button
         type="submit"
-        className="hover:bg-slate-300 m-3 p-3 rounded-md text-gold  bg-slate-100"
+        className="hover:bg-slate-300 m-3 p-3 rounded-md shadow-lg text-gold  bg-slate-100"
       >
         Confirmar reserva
       </button>
