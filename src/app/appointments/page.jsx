@@ -19,9 +19,9 @@ export const PageAppointments = () => {
     e.preventDefault();
     const treatmentId = e.target.treatment.value;
     const date = e.target.date.value;
-    const time = selectedTime;
+
     try {
-      await bookingTreatmentService(treatmentId, date, time);
+      await bookingTreatmentService(treatmentId, date, selectedTime);
       alert("Tu tratamiento ha sido reservado con éxito");
     } catch (error) {
       alert("Error al reservar el tratamiento");

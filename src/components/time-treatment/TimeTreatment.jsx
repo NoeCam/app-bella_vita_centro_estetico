@@ -21,7 +21,7 @@ const TimeTreatment = ({ treatmentId, selectedDate, onTimeSelect }) => {
 
         setTimesToChose(json.data.allTimes || []);
       } catch (error) {
-        console.error("Error al obtener los horarios");
+        alert("Error al obtener los horarios");
       }
     };
     fetchData();

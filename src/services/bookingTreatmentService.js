@@ -9,7 +9,7 @@ export const bookingTreatmentService = async (treatmentId, date, time) => {
       body: JSON.stringify({
         treatmentId,
         date,
-        time,
+        selectedTime,
       }),
     }
   );
