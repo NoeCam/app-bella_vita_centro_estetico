@@ -1,6 +1,14 @@
-export const bookingTreatmentService = async (treatmentId, date, time) => {
+export const bookingTreatmentService = async (
+  treatmentId,
+  date,
+  selectedTime,
+  first_name,
+  last_name,
+  email,
+  celphone
+) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/booking-appointments`,
+    `${process.env.NEXT_PUBLIC_API_URL}/booking-appointments?treatmentId=${treatmentId}&date=${date}`,
     {
       method: "POST",
       headers: {
@@ -9,7 +17,11 @@ export const bookingTreatmentService = async (treatmentId, date, time) => {
       body: JSON.stringify({
         treatmentId,
         date,
-        selectedTime,
+        startTime: selectedTime,
+        first_name,
+        last_name,
+        email,
+        celphone,
       }),
     }
   );

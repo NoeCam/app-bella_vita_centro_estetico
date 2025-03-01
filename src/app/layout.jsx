@@ -7,8 +7,8 @@ import FooterComponent from "@/components/footer/FooterComponent";
 import Title from "@/components/title/Title";
 
 export const metadata = {
-  title: "Centro estético VM",
-  description: "Centro estético VM",
+  title: "Bella Vita",
+  description: "Bella Vita - Centro estético",
 };
 
 const raleway = Raleway({

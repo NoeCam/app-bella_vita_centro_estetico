@@ -22,10 +22,10 @@ const NavbarComponent = () => {
     <header className="flex flex-col md:flex-row justify-between items-center shadow sticky top-0 z-50 bg-slate-50">
       <Link href="/">
         <Image
-          src="/Logo-Marca-Agua-Negro.png"
+          src="/Logo-Black.png"
           alt="Logo"
-          width={80}
-          height={58}
+          width={107}
+          height={62}
           className="mx-5 p-3"
         />
       </Link>

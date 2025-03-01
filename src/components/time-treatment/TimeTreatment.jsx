@@ -28,8 +28,9 @@ const TimeTreatment = ({ treatmentId, selectedDate, onTimeSelect }) => {
   }, [treatmentId, selectedDate]);
 
   const handleClick = (e) => {
-    setSelectedTime(e.target.value);
-    onTimeSelect(selectedTime);
+    const time = e.target.value;
+    setSelectedTime(time);
+    onTimeSelect(time);
   };
 
   return (
@@ -49,7 +50,7 @@ const TimeTreatment = ({ treatmentId, selectedDate, onTimeSelect }) => {
         ))
       )}
       {selectedTime && (
-        <p className="text-gold bg-slate-50 shadow-md rounded-md  px-4 py-2">
+        <p className="text-gold bg-slate-50 shadow-md rounded-md mx-2 px-4 py-2">
           Horario seleccionado: {selectedTime}
         </p>
       )}
