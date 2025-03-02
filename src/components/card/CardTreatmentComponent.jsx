@@ -7,13 +7,11 @@ export async function CardTreatmentComponent() {
 
   return (
     <>
-      {!treatments.data.treatments.length ? (
-        <p>Loading</p>
-      ) : (
+      {treatments.data.treatments.length &&
         treatments.data.treatments.map((treatment, index) => (
           <article
             key={treatment.id}
-            className={`flex flex-col shadow-md mb-5 md:flex-row w-full bg-slate-50 ${
+            className={`flex flex-col shadow-md mb-10 md:flex-row w-full bg-slate-50 ${
               index % 2 !== 0 ? "md:flex-row-reverse" : ""
             }`}
           >
@@ -60,8 +58,7 @@ export async function CardTreatmentComponent() {
               </div>
             </div>
           </article>
-        ))
-      )}
+        ))}
     </>
   );
 }
