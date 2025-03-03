@@ -3,7 +3,8 @@
 import { Suspense, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
-import SelectTreatment from "@/components/select-treatment/SelectTreatment";
+import SelectTreatment from "@/components/select/SelectTreatment";
+import SelectCosmetologist from "@/components/select/SelectCosmetologist";
 import CalendarPersonalize from "@/components/calendar-personalize/CalendarPersonalize";
 import TimeTreatment from "@/components/time-treatment/TimeTreatment";
 import { bookingTreatmentService } from "@/services/bookingTreatmentService";
@@ -12,6 +13,7 @@ export function PageAppointments() {
   const searchParams = useSearchParams();
   const treatmentId = searchParams.get("treatmentId");
   const date = searchParams.get("date");
+  const adminId = searchParams.get("adminId");
 
   const [selectedDate, setSelectedDate] = useState(date || null);
   const [selectedTime, setSelectedTime] = useState("");
@@ -54,6 +56,7 @@ export function PageAppointments() {
 
       params.delete("treatmentId");
       params.delete("date");
+      params.delete("adminId");
 
       replace(`?${params.toString()}`);
     } catch (error) {
@@ -70,20 +73,30 @@ export function PageAppointments() {
         </h2>
         <SelectTreatment treatmentId={treatmentId} />
       </div>
+      <div className="flex flex-col justify-center">
+        <h2 className="text-2xl text-center mb-3">
+          2. Selecciona una cosmetóloga
+        </h2>
+        <SelectCosmetologist adminId={adminId} />
+      </div>
       <div className="mb-5">
-        <h2 className="text-2xl text-center my-3">2. Selecciona una fecha</h2>
+        <h2 className="text-2xl text-center my-3">3. Selecciona una fecha</h2>
         <CalendarPersonalize onChange={setSelectedDate} value={selectedDate} />
       </div>
       <div className="mb-5">
-        <h2 className="text-2xl text-center my-3">3. Selecciona un horario</h2>
+        <h2 className="text-2xl text-center my-3">4. Selecciona un horario</h2>
         <TimeTreatment
           treatmentId={treatmentId}
+          adminId={adminId}
           selectedDate={selectedDate}
           onTimeSelect={setSelectedTime}
         />
       </div>
-      <form onSubmit={handleSumbit} className="mb-5">
-        <h2 className="text-2xl text-center my-3">4. Ingrese sus datos</h2>
+      <form
+        onSubmit={handleSumbit}
+        className="mb-5 flex flex-col items-center justify-center"
+      >
+        <h2 className="text-2xl text-center my-3">5. Ingrese sus datos</h2>
         <div>
           <label htmlFor="first_name">Nombre (2 a 10 caracteres):</label>
           <input
@@ -154,7 +167,7 @@ export function PageAppointments() {
         </div>
         <button
           type="submit"
-          className="hover:bg-slate-300 m-3 p-3 rounded-md shadow-lg text-gold  bg-slate-100"
+          className="bg-[#d4af37] m-3 px-5 py-3 rounded-md shadow-lg          hover:bg-[#b8952e] hover:text-white hover:scale-105 transition-transform"
         >
           Confirmar reserva
         </button>

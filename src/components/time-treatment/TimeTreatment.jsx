@@ -2,16 +2,21 @@
 
 import React, { useState, useEffect } from "react";
 
-const TimeTreatment = ({ treatmentId, selectedDate, onTimeSelect }) => {
+const TimeTreatment = ({
+  treatmentId,
+  adminId,
+  selectedDate,
+  onTimeSelect,
+}) => {
   const [timesToChose, setTimesToChose] = useState([]);
   const [selectedTime, setSelectedTime] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      if (!treatmentId || !selectedDate) return;
+      if (!treatmentId || !adminId || !selectedDate) return;
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/time-appointments?treatmentId=${treatmentId}&date=${selectedDate}`
+          `${process.env.NEXT_PUBLIC_API_URL}/time-appointments?treatmentId=${treatmentId}&adminId=${adminId}&date=${selectedDate}`
         );
 
         if (!response.ok) {
@@ -25,7 +30,7 @@ const TimeTreatment = ({ treatmentId, selectedDate, onTimeSelect }) => {
       }
     };
     fetchData();
-  }, [treatmentId, selectedDate]);
+  }, [treatmentId, adminId, selectedDate]);
 
   const handleClick = (e) => {
     const time = e.target.value;
@@ -35,9 +40,10 @@ const TimeTreatment = ({ treatmentId, selectedDate, onTimeSelect }) => {
 
   return (
     <>
-      {timesToChose.length === 0 ? (
+      {adminId && timesToChose.length === 0 ? (
         <p>No hay horarios disponibles</p>
       ) : (
+        adminId &&
         timesToChose.map((time, index) => (
           <button
             key={index}

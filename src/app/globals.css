@@ -18,3 +18,103 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+
+/*********************** Estilo base del calendario *************************/
+/* Contenedor del encabezado de navegación */
+.react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Botones de navegación (‹ y ›) */
+.react-calendar__navigation__arrow {
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+/* Texto del mes y año */
+.react-calendar__navigation__label {
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+/* Contenedor del calendario */
+.react-calendar {
+  background-color: #f8fafc;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(169, 169, 169, 0.5);
+  padding: 20px;
+}
+
+/* Días de la semana */
+.react-calendar__month-view__weekdays {
+  text-align: center;
+}
+
+.react-calendar__month-view__weekdays__weekday {
+  font-weight: bold;
+}
+
+/* Celdas del calendario */
+.react-calendar__tile {
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  padding: 10px 0;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Hover en días habilitados */
+.react-calendar__tile:hover {
+  background-color: #f5e1a4;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* Día seleccionado */
+.react-calendar__tile--active {
+  background: radial-gradient(circle, #d4af37, #b8952e);
+  color: #ffffff;
+  box-shadow: 0 6px 12px rgba(169, 169, 169, 0.6),
+    0 3px 6px rgba(212, 175, 55, 0.6);
+}
+
+/* Días deshabilitados (sin disponibilidad) */
+.react-calendar__tile:disabled {
+  background-color: #d3d3d3;
+  color: #808080;
+  cursor: default;
+  transform: none;
+}
+
+/* Días con contenido */
+.tile-with-content {
+  background: radial-gradient(circle, #d4af37, #b8952e);
+  color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 6px 12px rgba(169, 169, 169, 0.6),
+    0 3px 6px rgba(212, 175, 55, 0.6);
+}
+
+/* Ocultar borde de navegación */
+.react-calendar__navigation {
+  border-bottom: none;
+}
+
+@media (max-width: 600px) {
+  .react-calendar {
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .react-calendar__tile {
+    padding: 5px 0;
+  }
+
+  .react-calendar__navigation__label {
+    font-size: 1rem;
+  }
+}
