@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 
 export default function CalendarPersonalize({ onChange, value }) {
   const pathname = usePathname();
@@ -45,10 +44,15 @@ export default function CalendarPersonalize({ onChange, value }) {
     replace(`${pathname}?${params.toString()}`);
   };
 
+  const disableWeekends = ({ date }) => {
+    return date.getDay() === 0 || date.getDay() === 6; // 0 = Domingo, 6 = Sábado
+  };
+
   return (
     <Calendar
       onChange={handleClick}
       value={value ? new Date(value) : new Date()}
+      tileDisabled={disableWeekends}
     />
   );
 }

@@ -8,8 +8,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        // gold: "#D19E00",
-        gold: "#CFA231",
+        //gold: "#CFA231",
+        gold: "#d4af37",
       },
     },
   },

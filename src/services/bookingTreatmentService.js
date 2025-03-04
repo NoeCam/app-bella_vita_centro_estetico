@@ -1,5 +1,6 @@
 export const bookingTreatmentService = async (
   treatmentId,
+  adminId,
   date,
   selectedTime,
   first_name,
@@ -8,7 +9,7 @@ export const bookingTreatmentService = async (
   celphone
 ) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/booking-appointments?treatmentId=${treatmentId}&date=${date}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/booking-appointments?treatmentId=${treatmentId}&adminId=${adminId}&date=${date}`,
     {
       method: "POST",
       headers: {
@@ -16,6 +17,7 @@ export const bookingTreatmentService = async (
       },
       body: JSON.stringify({
         treatmentId,
+        adminId,
         date,
         startTime: selectedTime,
         first_name,
