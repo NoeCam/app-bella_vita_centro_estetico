@@ -90,15 +90,6 @@ body {
   transform: none;
 }
 
-/* Días con contenido */
-.tile-with-content {
-  background: radial-gradient(circle, #d4af37, #b8952e);
-  color: #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 6px 12px rgba(169, 169, 169, 0.6),
-    0 3px 6px rgba(212, 175, 55, 0.6);
-}
-
 /* Ocultar borde de navegación */
 .react-calendar__navigation {
   border-bottom: none;
