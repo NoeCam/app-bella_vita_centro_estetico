@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 
 import SelectTreatment from "@/components/select/SelectTreatment";
@@ -18,12 +18,43 @@ export function PageAppointments() {
   const [selectedDate, setSelectedDate] = useState(date || null);
   const [selectedTime, setSelectedTime] = useState("");
 
+  const [availableDays, setAvailableDays] = useState(null);
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth() + 1);
+
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
     email: "",
     celphone: "",
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!treatmentId || !adminId) return;
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/availabledays?treatmentId=${treatmentId}&adminId=${adminId}&year=${selectedYear}&month=${selectedMonth}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Error al obtener los días disponibles.");
+        }
+        const json = await response.json();
+
+        setAvailableDays(json.data.availableDays);
+      } catch (error) {
+        alert("Error al obtener los días disponibles");
+      }
+    };
+    fetchData();
+  }, [treatmentId, adminId, selectedYear, selectedMonth]);
 
   const { replace } = useRouter();
 
@@ -81,7 +112,13 @@ export function PageAppointments() {
       </div>
       <div className="mb-5">
         <h2 className="text-2xl text-center my-3">3. Selecciona una fecha</h2>
-        <CalendarPersonalize onChange={setSelectedDate} value={selectedDate} />
+        <CalendarPersonalize
+          onChange={setSelectedDate}
+          value={selectedDate}
+          availableDays={availableDays}
+          setSelectedYear={setSelectedYear}
+          setSelectedMonth={setSelectedMonth}
+        />
       </div>
       <div className="mb-5">
         <h2 className="text-2xl text-center my-3">4. Selecciona un horario</h2>

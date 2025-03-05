@@ -8,7 +8,7 @@ const FooterComponent = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="md:mb-0">
             <p className="text-sm">
-              &copy; {year} Cosmetóloga Valery Miranda. Todos los derechos
+              &copy; {year} Bella Vita Centro Estético. Todos los derechos
               reservados.
             </p>
           </div>
@@ -22,7 +22,7 @@ const FooterComponent = () => {
           </div> */}
           <div className="flex space-x-4 md:mt-0">
             <Link
-              href="https://www.instagram.com/cosmetologa_vm?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+              href="https://www.instagram.com"
               target="_blank"
               rel="noopener noreferrer"
             >

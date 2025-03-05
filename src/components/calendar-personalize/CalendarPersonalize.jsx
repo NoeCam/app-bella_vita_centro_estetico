@@ -4,7 +4,13 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import Calendar from "react-calendar";
 
-export default function CalendarPersonalize({ onChange, value }) {
+export default function CalendarPersonalize({
+  onChange,
+  value,
+  availableDays,
+  setSelectedYear,
+  setSelectedMonth,
+}) {
   const pathname = usePathname();
   const { replace } = useRouter();
   const searchParams = useSearchParams();
@@ -26,8 +32,13 @@ export default function CalendarPersonalize({ onChange, value }) {
     return <div>Loading...</div>;
   }
 
-  const formatDate = (date) => {
-    return date.toLocaleDateString("en-CA");
+  const formatDate = (date) => date.toLocaleDateString("en-CA");
+
+  const handleActiveDateChange = ({ activeStartDate }) => {
+    if (activeStartDate) {
+      setSelectedYear(activeStartDate.getFullYear());
+      setSelectedMonth(activeStartDate.getMonth() + 1);
+    }
   };
 
   const handleClick = (newDate) => {
@@ -44,15 +55,40 @@ export default function CalendarPersonalize({ onChange, value }) {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const disableWeekends = ({ date }) => {
-    return date.getDay() === 0 || date.getDay() === 6; // 0 = Domingo, 6 = Sábado
+  const disableDays = ({ date }) => {
+    if (!availableDays) return true;
+
+    const normalizeDatefunction = (fecha) => {
+      return new Date(
+        Date.UTC(fecha.getFullYear(), fecha.getMonth(), fecha.getDate())
+      );
+    };
+
+    const normalizeDate = normalizeDatefunction(date);
+
+    const today = new Date();
+    const todayNormalized = normalizeDatefunction(today);
+
+    if (normalizeDate < todayNormalized) {
+      return true;
+    }
+
+    const getDisableDays = availableDays.find((availableDay) => {
+      const availableDate = normalizeDatefunction(
+        new Date(availableDay.work_date)
+      );
+      return normalizeDate.getTime() === availableDate.getTime();
+    });
+
+    return !getDisableDays || getDisableDays.available === 0;
   };
 
   return (
     <Calendar
       onChange={handleClick}
       value={value ? new Date(value) : new Date()}
-      tileDisabled={disableWeekends}
+      tileDisabled={disableDays}
+      onActiveStartDateChange={handleActiveDateChange}
     />
   );
 }
