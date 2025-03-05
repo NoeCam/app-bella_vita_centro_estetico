@@ -2,6 +2,8 @@
 
 import { Suspense, useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import SelectTreatment from "@/components/select/SelectTreatment";
 import SelectCosmetologist from "@/components/select/SelectCosmetologist";
@@ -44,19 +46,23 @@ export function PageAppointments() {
         );
 
         if (!response.ok) {
-          throw new Error("Error al obtener los días disponibles.");
+          throw toast.error("Error al obtener los días disponibles.", {
+            position: "bottom-right",
+          });
         }
         const json = await response.json();
 
         setAvailableDays(json.data.availableDays);
       } catch (error) {
-        alert("Error al obtener los días disponibles");
+        toast.error("Error al obtener los días disponibles", {
+          position: "bottom-right",
+        });
       }
     };
     fetchData();
   }, [treatmentId, adminId, selectedYear, selectedMonth]);
 
-  const { replace } = useRouter();
+  const { push } = useRouter();
 
   const handleSumbit = async (e) => {
     e.preventDefault();
@@ -64,6 +70,7 @@ export function PageAppointments() {
     try {
       await bookingTreatmentService(
         treatmentId,
+        adminId,
         date,
         selectedTime,
         formData.first_name,
@@ -71,7 +78,9 @@ export function PageAppointments() {
         formData.email,
         formData.celphone
       );
-      alert("Tu tratamiento ha sido reservado con éxito");
+      toast.success("Tu tratamiento ha sido reservado con éxito", {
+        position: "bottom-right",
+      });
 
       setFormData({
         first_name: "",
@@ -83,15 +92,11 @@ export function PageAppointments() {
       setSelectedDate(null);
       setSelectedTime("");
 
-      const params = new URLSearchParams(searchParams);
-
-      params.delete("treatmentId");
-      params.delete("date");
-      params.delete("adminId");
-
-      replace(`?${params.toString()}`);
+      push("/appointments");
     } catch (error) {
-      alert("Error al reservar el tratamiento");
+      toast.error("Error al reservar el tratamiento", {
+        position: "bottom-right",
+      });
     }
   };
 
@@ -209,6 +214,8 @@ export function PageAppointments() {
           Confirmar reserva
         </button>
       </form>
+
+      <ToastContainer />
     </div>
   );
 }
