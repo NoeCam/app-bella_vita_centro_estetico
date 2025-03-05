@@ -5,10 +5,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "example.com",
+        hostname: "res.cloudinary.com",
       },
     ],
-    domains: ["res.cloudinary.com"],
   },
   eslint: {
     ignoreDuringBuilds: true,

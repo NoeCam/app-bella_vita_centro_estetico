@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 const TimeTreatment = ({
   treatmentId,
@@ -20,13 +21,17 @@ const TimeTreatment = ({
         );
 
         if (!response.ok) {
-          throw new Error("Error al obtener los horarios");
+          throw toast.error("Error al obtener los horarios", {
+            position: "bottom-right",
+          });
         }
         const json = await response.json();
 
         setTimesToChose(json.data.allTimes || []);
       } catch (error) {
-        alert("Error al obtener los horarios");
+        toast.error("Error al obtener los horarios", {
+          position: "bottom-right",
+        });
       }
     };
     fetchData();
